@@ -5,66 +5,62 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/11/12 11:18:52 by mvaldes           #+#    #+#              #
-#    Updated: 2020/01/07 13:02:15 by mvaldes          ###   ########.fr        #
+#    Created: 2020/02/27 15:59:30 by mvaldes           #+#    #+#              #
+#    Updated: 2020/03/06 11:18:40 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= ft_memset.c\
-		ft_bzero.c\
-		ft_memcpy.c\
-		ft_memccpy.c\
-		ft_memmove.c\
-		ft_memchr.c\
-		ft_memcmp.c\
-		ft_strlen.c\
-		ft_isalpha.c\
-		ft_isdigit.c\
-		ft_isalnum.c\
-		ft_isascii.c\
-		ft_isprint.c\
-		ft_toupper.c\
-		ft_tolower.c\
-		ft_strchr.c\
-		ft_strrchr.c\
-		ft_strncmp.c\
-		ft_strlcpy.c\
-		ft_strlcat.c\
-		ft_strnstr.c\
-		ft_atoi.c\
-		ft_calloc.c\
-		ft_strdup.c\
-		ft_substr.c\
-		ft_strjoin.c\
-		ft_strtrim.c\
-		ft_split.c\
-		ft_itoa.c\
-		ft_strmapi.c\
-		ft_putchar_fd.c\
-		ft_putstr_fd.c\
-		ft_putendl_fd.c\
-		ft_putnbr_fd.c\
+NAME	=	libftprintf.a
 
-OBJS	= ${SRCS:.c=.o}
+SRCS	=	ft_printf.c \
+			ft_find_prms.c\
+			ft_parse_prms.c\
+			ft_cvt_prms.c\
+			ft_make_lyt.c\
+			ft_arg_out_str.c\
+			ft_display.c\
+			ft_display_dst.c\
+			is_preci_zero.c\
+			libft/ft_atoi.c\
+			libft/ft_digit_len.c\
+			libft/ft_find_index.c\
+			libft/ft_get_index.c\
+			libft/ft_is_on_set.c\
+			libft/ft_is_printf_prms.c\
+			libft/ft_itoa.c\
+			libft/ft_memset.c\
+			libft/ft_putchar.c\
+			libft/ft_putnbr_base.c\
+			libft/ft_putstr.c\
+			libft/ft_strdup.c\
+			libft/ft_strlen.c\
+			libft/ft_strremove.c\
+			libft/ft_strstr.c\
+			libft/ft_substr.c\
 
-NAME	= libft.a
+OBJS := $(SRCS:.c=.o)
 
-RM	= rm -f
-
-.c.o: $(SRCS)
-	gcc -Wall -Wextra -Werror -c $^ -o ${^:.c=.o} 
-
-$(NAME):    $(OBJS) libft.h
-	ar rcs $(NAME) $(OBJS)
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror -I.
+RM		=	rm -f
 
 all:		${NAME}
+%.o:	%.c
+	${CC} ${CFLAGS} -c $< -o $@ 
+%.o:	libft/%.c
+	${CC} ${CFLAGS} -c $< -o $@ 
+
+${NAME}:	${OBJS}
+			ar rcs ${NAME} libft/*.o ${OBJS}
+
+debug:
+	$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft 
 
 clean:
 			${RM} ${OBJS}
-
 fclean:		clean
-			${RM} ${NAME}
+	$(MAKE) -C libft fclean
+	${RM} ${NAME} libft/*.o *.o
 
 re:			fclean all
-
-.PHONY: all clean fclean re
+.PHONY:		all ${NAME} clean fclean re
