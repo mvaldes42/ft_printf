@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/27 15:59:30 by mvaldes           #+#    #+#              #
-#    Updated: 2020/03/06 11:18:40 by mvaldes          ###   ########.fr        #
+#    Updated: 2020/05/01 12:21:08 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS	=	ft_printf.c \
 			libft/ft_strremove.c\
 			libft/ft_strstr.c\
 			libft/ft_substr.c\
+			libft/ft_bzero.c\
 
 OBJS := $(SRCS:.c=.o)
 
@@ -46,15 +47,15 @@ RM		=	rm -f
 
 all:		${NAME}
 %.o:	%.c
-	${CC} ${CFLAGS} -c $< -o $@ 
+	${CC} ${CFLAGS} -c $< -o $@
 %.o:	libft/%.c
-	${CC} ${CFLAGS} -c $< -o $@ 
+	${CC} ${CFLAGS} -c $< -o $@
 
 ${NAME}:	${OBJS}
 			ar rcs ${NAME} libft/*.o ${OBJS}
 
 debug:
-	$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft 
+	$(CC) $(CFLAGS) -g $(SRCS) libft/ft_*.c -I libft
 
 clean:
 			${RM} ${OBJS}

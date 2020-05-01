@@ -6,12 +6,11 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:28:56 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/03/06 18:10:15 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/01 12:25:54 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "./ft_printf.h"
+#include "ft_printf.h"
 
 int				main(void)
 {
@@ -28,8 +27,8 @@ int				main(void)
 	// static unsigned long long a10;
 	// static char *a11;
 	// static void *a12;
-	
-	
-	printf(" & return = %d\n", printf("%.6d && %.6i", -3, -3));
-	printf(" & return = %d\n", ft_printf("%.6d && %.6i", -3, -3));
+
+
+	printf(" & return = %d\n", printf("%.0p", 0));
+	printf(" & return = %d\n", ft_printf("%.0p", 0));
 }

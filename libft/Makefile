@@ -6,11 +6,12 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/12 11:18:52 by mvaldes           #+#    #+#              #
-#    Updated: 2020/03/06 11:17:28 by mvaldes          ###   ########.fr        #
+#    Updated: 2020/05/01 12:18:44 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	=	ft_atoi.c\
+			ft_bzero.c\
 			ft_digit_len.c\
 			ft_find_index.c\
 			ft_get_index.c\
@@ -34,7 +35,7 @@ NAME	= libft.a
 RM	= rm -f
 
 .c.o: $(SRCS)
-	gcc -Wall -Wextra -Werror -c $^ -o ${^:.c=.o} 
+	gcc -Wall -Wextra -Werror -c $^ -o ${^:.c=.o}
 
 $(NAME):    $(OBJS) libft.h
 	ar rcs $(NAME) $(OBJS)

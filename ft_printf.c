@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 16:26:04 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/03/06 18:12:09 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/01 12:20:28 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int			ft_printf(const char *format, ...)
 
 	va_start(arg_ptr, format);
 	dst = ft_strdup(format);
+	ft_bzero(&lay, sizeof(lay));
 	while (*dst)
 	{
 		if (*dst == '%')
