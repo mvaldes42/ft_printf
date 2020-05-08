@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:13:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/01 12:12:21 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 12:47:58 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,15 +88,5 @@ t_lyt			do_display_ptr(t_arg arg, t_lyt lay, char *base);
 t_lyt			do_display_hex(t_arg arg, t_lyt lay, t_c_prms prms, char *base);
 
 int				ft_printf(const char *format, ...);
-
-/*
-**unsigned int uival = va_arg(argu_pointer, unsigned int); UNSIGNED INT
-**signed int sival = a_arg(argu_pointer, signed int); SIGNED INT
-**char *sval = va_arg(argu_pointer, char *); STRING
-**char cval = va_arg(argu_pointer, int); CHAR
-**unsigned int uival = va_arg(argu_pointer, unsigned int); HEX
-**unsigned int uival = va_arg(argu_pointer, unsigned int); HEX UP
-**unsigned long p = va_arg(argu_pointer, unsigned long); PTR
-*/
 
 #endif

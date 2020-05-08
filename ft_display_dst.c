@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 16:53:35 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/03/06 17:59:01 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/07 19:49:03 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,12 @@ char	*arg_to_str(char *dst, t_arg arg, t_c_prms prms)
 {
 	if ((prms.width == 0 && prms.preci != -1 && prms.is_0 == 0) ||
 	(prms.width != 0 && prms.preci == -1 && prms.is_0 == 1) ||
-	(prms.width != 0 && prms.preci != -1 && prms.is_0 == 1))
-		arg.ival = arg.ival < 0 ? -arg.ival : arg.ival;
+	(prms.width != 0 && prms.preci != -1 && prms.is_0 == 1) ||
+	(prms.width == 0 && prms.preci != -1 && prms.is_0 == 1))
+	{
+		arg.ival = arg.ival < 0 ? arg.ival * -1 : arg.ival;
+		arg.sival = arg.sival < 0 ? arg.sival * -1 : arg.sival;
+	}
 	dst = prms.type == 's' && arg.sval != NULL ? ft_strdup(arg.sval) : dst;
 	dst = prms.type == 'p' ? NULL : dst;
 	dst = prms.type == 'd' ? ft_itoa(arg.ival) : dst;
@@ -57,9 +61,12 @@ t_lyt	do_display_dst(t_arg arg, t_lyt lay, t_c_prms prms)
 	dst = NULL;
 	dst = arg_to_str(dst, arg, prms);
 	tmp = dst;
-	if ((prms.type == 's') || (prms.type == 'd' && (!(arg.ival == 0 &&
-	(prms.preci == 0 || prms.preci == -2)))) || (prms.type == 'i' && (!(arg.sival == 0 &&
-	(prms.preci == 0 || prms.preci == -2)))))
+	if (
+	(prms.type == 's') || (prms.type == 'd' && (!(arg.ival == 0 &&
+	(prms.preci == 0 || prms.preci == -2)))) || (prms.type == 'i' &&
+	(!(arg.sival == 0 && (prms.preci == 0 || prms.preci == -2)))) ||
+	(prms.type == 'u' && (!(arg.uival == 0 && (prms.preci == 0 ||
+	prms.preci == -2)))))
 	{
 		if (prms.type == 's' && arg.sval == NULL)
 			dst = ft_strdup("(null)");

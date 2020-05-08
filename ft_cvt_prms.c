@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:54:02 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/03/06 11:11:16 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 12:42:29 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ void		free_params(t_prms prms)
 	free(prms.size);
 }
 
+t_c_prms	cvt_asterix(t_c_prms c_prms, t_prms prms, va_list arg_p)
+{
+	if (prms.width[0] == '*')
+	{
+		c_prms.width = va_arg(arg_p, int);
+		if (c_prms.width < 0)
+		{
+			c_prms.width = c_prms.width * -1;
+			c_prms.is_min = 1;
+		}
+	}
+	if (prms.preci[0] == '*')
+	{
+		c_prms.preci = va_arg(arg_p, int);
+		c_prms.preci = c_prms.preci >= 0 ? c_prms.preci : -1;
+	}
+	return (c_prms);
+}
+
 t_c_prms	cvt_prms(t_prms prms, va_list arg_p)
 {
 	t_c_prms c_prms;
@@ -28,8 +47,7 @@ t_c_prms	cvt_prms(t_prms prms, va_list arg_p)
 	ft_strdup(prms.size), prms.type};
 	c_prms.is_min = ft_is_on_set(prms.flags, '-') ? 1 : 0;
 	c_prms.is_0 = ft_is_on_set(prms.flags, '0') ? 1 : 0;
-	c_prms.width = prms.width[0] == '*' ? va_arg(arg_p, int) : c_prms.width;
-	c_prms.preci = prms.preci[0] == '*' ? va_arg(arg_p, int) : c_prms.preci;
+	c_prms = cvt_asterix(c_prms, prms, arg_p);
 	if (prms.preci_is_0 == 1)
 		c_prms.preci = 0;
 	else

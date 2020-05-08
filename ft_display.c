@@ -6,14 +6,50 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:26:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/03/06 17:47:58 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/07 19:30:05 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+t_arg	val_is_neg(t_arg arg, t_c_prms prms)
+{
+	if ((prms.type == 'd' && arg.ival < 0) && ((prms.width == 0 &&
+	prms.preci != -1 && prms.is_0 == 0) || (prms.width != 0 &&
+	prms.preci == -1 && prms.is_0 == 1) || (prms.width != 0 &&
+	prms.preci != -1)))
+	{
+		ft_putchar('-');
+		arg.ival = -arg.ival;
+	}
+	if ((prms.type == 'i' && arg.sival < 0) && ((prms.width == 0 &&
+	prms.preci != -1 && prms.is_0 == 0) || (prms.width != 0 &&
+	prms.preci == -1 && prms.is_0 == 1) || (prms.width != 0 &&
+	prms.preci != -1)))
+	{
+		ft_putchar('-');
+		arg.sival = -arg.sival;
+	}
+	return (arg);
+}
+
 t_lyt	do_display_prt_1(t_lyt lay, t_arg arg, t_c_prms prms)
 {
+	if (prms.is_0)
+	{
+		if ((prms.type == 'd' && arg.ival < 0) && ((prms.width == 0 &&
+		prms.preci != -1)))
+		{
+			ft_putchar('-');
+			arg.ival = -arg.ival;
+		}
+		if ((prms.type == 'i' && arg.sival < 0) && ((prms.width == 0 &&
+		prms.preci != -1)))
+		{
+			ft_putchar('-');
+			arg.sival = -arg.sival;
+		}
+	}
 	if (prms.type == 'c' && arg.cval == '\0' && prms.is_min == 1)
 		write(1, "\0", 1);
 	while (lay.spc_bfr-- > 0 && lay.out_arg-- > 0)
@@ -47,27 +83,6 @@ t_lyt	do_display_prt_3(t_lyt lay, t_arg arg, t_c_prms prms)
 	if (prms.type == 'c' && arg.cval == '\0' && prms.is_min == 0)
 		write(1, "\0", 1);
 	return (lay);
-}
-
-t_arg	val_is_neg(t_arg arg, t_c_prms prms)
-{
-	if ((prms.type == 'd' && arg.ival < 0) && ((prms.width == 0 &&
-	prms.preci != -1 && prms.is_0 == 0) || (prms.width != 0 &&
-	prms.preci == -1 && prms.is_0 == 1) || (prms.width != 0 &&
-	prms.preci != -1)))
-	{
-		ft_putchar('-');
-		arg.ival = -arg.ival;
-	}
-	if ((prms.type == 'i' && arg.sival < 0) && ((prms.width == 0 &&
-	prms.preci != -1 && prms.is_0 == 0) || (prms.width != 0 &&
-	prms.preci == -1 && prms.is_0 == 1) || (prms.width != 0 &&
-	prms.preci != -1)))
-	{
-		ft_putchar('-');
-		arg.sival = -arg.sival;
-	}
-	return (arg);
 }
 
 t_lyt	do_display(t_lyt lay, t_arg arg, t_c_prms prms)

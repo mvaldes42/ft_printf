@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/12 11:18:52 by mvaldes           #+#    #+#              #
-#    Updated: 2020/05/01 12:18:44 by mvaldes          ###   ########.fr        #
+#    Updated: 2020/05/07 18:00:10 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS	=	ft_atoi.c\
 			ft_strremove.c\
 			ft_strstr.c\
 			ft_substr.c\
+			ft_strchr.c\
 
 OBJS	= ${SRCS:.c=.o}
 

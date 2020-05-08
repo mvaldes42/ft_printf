@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/27 16:28:56 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/01 12:25:54 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 12:43:07 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int				main(void)
 	// static char *a11;
 	// static void *a12;
 
-
-	printf(" & return = %d\n", printf("%.0p", 0));
-	printf(" & return = %d\n", ft_printf("%.0p", 0));
+	printf("ret = %d\n", printf("%*i", -4, 94827));
+    printf("ret = %d\n", ft_printf("%*i", -4, 94827));
 }

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_prms.c                                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 10:14:59 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/08 12:51:57 by mvaldes          ###   ########.fr       */
+/*   Created: 2019/11/07 09:27:38 by mvaldes           #+#    #+#             */
+/*   Updated: 2020/04/21 15:23:30 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-t_s_prms	find_prms(const char *str, char c)
+char	*ft_strchr(const char *s, int c)
 {
-	t_s_prms	str_params;
+	int i;
 
-	str_params = (t_s_prms) {0, 0, 0, NULL};
-	str_params.end = ft_find_index(str, "cspdiuxX%");
-	str_params.start = ft_get_index(str, c);
-	str_params.len = str_params.end - str_params.start;
-	str_params.sub_str = ft_substr(str, str_params.start, str_params.len + 1);
-	return (str_params);
+	if (s == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return ((char*)s + i);
+		i++;
+	}
+	if (c == '\0')
+		return ((char*)s + i);
+	return (NULL);
 }

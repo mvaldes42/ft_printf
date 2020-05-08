@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/27 15:59:30 by mvaldes           #+#    #+#              #
-#    Updated: 2020/05/01 12:21:08 by mvaldes          ###   ########.fr        #
+#    Updated: 2020/05/07 18:01:30 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS	=	ft_printf.c \
 			libft/ft_strstr.c\
 			libft/ft_substr.c\
 			libft/ft_bzero.c\
+			libft/ft_strchr.c\
 
 OBJS := $(SRCS:.c=.o)
 

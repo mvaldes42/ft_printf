@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 09:13:17 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/01 12:20:09 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/07 18:00:06 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		ft_is_type(char p);
 int		ft_is_nbr(char c);
 int		ft_is_nbr_dgt(char c);
 
-char	*ft_itoa(int n);
+char	*ft_itoa(long long n);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_putchar(char c);
 void	ft_putnbr_base(unsigned long nbr, char *base, int out_arg);
@@ -39,5 +39,6 @@ size_t	ft_strlen(const char *s);
 void	ft_strremove(char *str, const char *to_remove);
 void	ft_putstr(char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strchr(const char *s, int c);
 
 #endif

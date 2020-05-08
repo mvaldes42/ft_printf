@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvaldes <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:21:09 by mvaldes           #+#    #+#             */
-/*   Updated: 2019/11/18 16:04:07 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/01 13:08:03 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static int		digit_len(long n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	char		*result;
 	long long	i;
