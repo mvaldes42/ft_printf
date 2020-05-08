@@ -6,7 +6,7 @@
 #    By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/27 15:59:30 by mvaldes           #+#    #+#              #
-#    Updated: 2020/05/07 18:01:30 by mvaldes          ###   ########.fr        #
+#    Updated: 2020/05/08 13:28:34 by mvaldes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRCS	=	ft_printf.c \
 			ft_find_prms.c\
 			ft_parse_prms.c\
 			ft_cvt_prms.c\
+			ft_do_lyt.c\
 			ft_make_lyt.c\
 			ft_arg_out_str.c\
 			ft_display.c\

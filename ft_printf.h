@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:13:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/08 12:47:58 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 16:12:01 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,18 @@ int				ft_get_nbr(t_arg arg, t_c_prms prms);
 t_prms			is_preci_0(const char *str, t_prms prms, int i, int j);
 t_lyt			out_arg_str(t_c_prms prms, t_lyt lyt, t_arg arg, int dgt);
 
-t_s_prms		find_prms(const char *str, char c);
+char			*find_prms(const char *str, char c);
 t_prms			parse_prms(const char *str);
 t_c_prms		cvt_prms(t_prms prms, va_list arg_p);
 t_arg			cvt_arg(t_c_prms prms, va_list arg_p);
+
+int				do_z_before(t_c_prms p, t_lyt lay, t_arg arg, int dgt);
+int				do_spc_bfr_nbr(t_c_prms p, t_lyt lay, t_arg arg, int dgt);
+int				do_spc_bfr(t_c_prms p, t_lyt lay, t_arg arg, int dgt);
+int				do_spc_afr(t_c_prms prms, t_lyt lay, t_arg arg, int dgt);
+
 t_lyt			make_lyt(t_c_prms prms, t_arg arg, t_lyt lay);
+
 t_lyt			do_display(t_lyt lay, t_arg arg, t_c_prms prms);
 t_lyt			do_display_dst(t_arg arg, t_lyt lay, t_c_prms prms);
 t_lyt			do_display_ptr(t_arg arg, t_lyt lay, char *base);
