@@ -6,17 +6,13 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 17:13:44 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/08 16:12:01 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 17:18:15 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 # include <stdarg.h>
-# include <stdio.h>
-# include <math.h>
-# include <limits.h>
-# include <stdbool.h>
 # include "libft/libft.h"
 
 typedef struct	s_s_prms
@@ -26,10 +22,6 @@ typedef struct	s_s_prms
 	size_t	len;
 	char	*sub_str;
 }				t_s_prms;
-
-/*
-** %[flags][width][.precision][size]type
-*/
 
 typedef struct	s_prms
 {
