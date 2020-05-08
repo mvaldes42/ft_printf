@@ -9,3 +9,5 @@ printf-tester/
 printf-unit-test2/
 printf-unit-tests/
 ftprintfdestructor/
+main.c
+.gitignore
