@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 16:26:04 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/08 12:52:57 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 15:28:47 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,6 @@ t_lyt		do_printf_arg(va_list arg_ptr, t_lyt lay,
 	arg = cvt_arg(c_prms, arg_ptr);
 	lay = do_display(make_lyt(c_prms, arg, lay), arg, c_prms);
 	free_c_params(c_prms, arg);
-	// printf("\nflag is - = %s\n", c_prms.is_min ? "true" : "false");
-	// printf("flag is 0 = %s\n", c_prms.is_0 ? "true" : "false");
-	// printf("width = %d\n", c_prms.width);
-	// printf("precision = %d\n", c_prms.preci);
-	// printf("size = %s\n", c_prms.size == '\0' ? c_prms.size : "NULL");
-	// printf("type = %c\n", c_prms.type);
 	return (lay);
 }
 
@@ -50,11 +44,10 @@ int			ft_printf(const char *format, ...)
 	ft_bzero(&lay, sizeof(lay));
 	while (*dst)
 	{
-		if (*dst == '%')
+		if (*dst == '%' && dst++ != '\0')
 		{
-			dst++;
 			sub_prms = find_prms(dst, *dst);
-			lay = do_printf_arg(arg_ptr, lay, sub_prms);
+			lay = do_printf_arg(arg_ptr, lay, find_prms(dst, *dst));
 			ft_strremove(dst, sub_prms.sub_str);
 			free(sub_prms.sub_str);
 		}

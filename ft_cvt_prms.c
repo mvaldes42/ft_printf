@@ -6,7 +6,7 @@
 /*   By: mvaldes <mvaldes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 10:54:02 by mvaldes           #+#    #+#             */
-/*   Updated: 2020/05/08 12:42:29 by mvaldes          ###   ########.fr       */
+/*   Updated: 2020/05/08 13:41:10 by mvaldes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_arg		cvt_arg(t_c_prms prms, va_list arg_p)
 {
 	t_arg arg;
 
-	arg = (t_arg) {0, NULL, 0, 0, 0, 0};
+	ft_bzero(&arg, sizeof(arg));
 	arg.cval = prms.type == 'c' ? va_arg(arg_p, int) : '\0';
 	arg.sval = prms.type == 's' ? ft_strdup(va_arg(arg_p, char*)) : NULL;
 	arg.pval = prms.type == 'p' ? va_arg(arg_p, unsigned long) : '\0';
